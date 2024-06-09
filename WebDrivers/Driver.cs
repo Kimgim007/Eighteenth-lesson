@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,22 @@ namespace Eighteenth_lesson.WebDrivers
 {
     internal class Driver
     {
-        private static IWebDriver _driver;
+        private static IWebDriver? _driver;
+
+        private static WebDriverWait? _wait;
+
+        public static WebDriverWait GetWebDriverWait(double wait)
+        {
+            if (_wait == null)
+            {
+                return new(_driver, TimeSpan.FromSeconds(wait));
+            }
+            return _wait;
+        }
 
         public static IWebDriver GetDriver()
         {
-            if(_driver == null)
+            if (_driver == null)
             {
                 return new ChromeDriver(GetOptions());
             }
@@ -26,6 +38,13 @@ namespace Eighteenth_lesson.WebDrivers
             var options = new ChromeOptions();
             options.AddArgument("start-maximized");
             return options;
+        }
+
+        public static void QuitDriver()
+        {
+            _driver?.Quit();
+            _driver = null;
+            _wait = null;
         }
     }
 }
