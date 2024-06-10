@@ -15,11 +15,11 @@ namespace Eighteenth_lesson.WebDrivers
 
         private static WebDriverWait? _wait;
 
-        public static WebDriverWait GetWebDriverWait(double wait)
+        public static WebDriverWait GetWebDriverWait(IWebDriver driver,double wait)
         {
             if (_wait == null)
             {
-                return new(_driver, TimeSpan.FromSeconds(wait));
+                return new(driver, TimeSpan.FromSeconds(wait));
             }
             return _wait;
         }
@@ -45,6 +45,11 @@ namespace Eighteenth_lesson.WebDrivers
             _driver?.Quit();
             _driver = null;
             _wait = null;
+        }
+
+        public static void GoToUrlThat(string url)
+        {
+            _driver.Navigate().GoToUrl(url);
         }
     }
 }

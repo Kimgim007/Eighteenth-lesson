@@ -10,24 +10,34 @@ using System.Threading.Tasks;
 
 namespace Eighteenth_lesson.Pages
 {
-    internal class AddRemoveElements
+    public class AddRemoveElements
     {
- 
-        private IWebElement addElement = Driver.GetWebDriverWait(60).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='content']/div/button")));
-       // private IWebElement delete = Driver.GetWebDriverWait(10).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='elements']/button")));
+        private IWebDriver _driver;
+        private  WebDriverWait _wait;
+        public AddRemoveElements() { }
+        public AddRemoveElements(IWebDriver driver)
+        {
+            _driver = driver;
+            _wait = Driver.GetWebDriverWait(_driver, 30);
+        }
 
         public void AddElement()
         {
+            IWebElement addElement = _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='content']/div/button")));
+            addElement.Click();
             addElement.Click();
         }
 
-        //public void DeleteElement()
-        //{
-        //    delete.Click();
-        //}
+        public void DeleteElement()
+        {
+            IWebElement delete = _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='elements']/button")));
+            delete.Click();
+            
+        }
 
         public bool IsElementVisible()
         {
+            IWebElement addElement = _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='elements']/button")));
             return addElement.Displayed;
         }
     }
