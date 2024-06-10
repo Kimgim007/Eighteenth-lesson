@@ -40,7 +40,7 @@ namespace Eighteenth_lesson.WebDrivers
             return options;
         }
 
-        public static void QuitDriver()
+        public static void QuitDriver(IWebDriver _driver)
         {
             _driver?.Quit();
             _driver = null;

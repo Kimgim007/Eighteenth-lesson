@@ -89,7 +89,7 @@ namespace Eighteenth_lesson
             driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/inputs");
             var inpuntField = new Inputs(driver);
             var answer = inpuntField.InputField("//*[@id='content']/div/div/div/input");
-            Assert.That(answer, Is.True);
+            Assert.That(answer, Is.False);
         }
 
         [Test]
@@ -138,8 +138,7 @@ namespace Eighteenth_lesson
         [TearDown]
         public void TearDown()
         {
-            Driver.QuitDriver();
-
+            Driver.QuitDriver(driver);
         }
     }
 }

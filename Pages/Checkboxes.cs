@@ -21,8 +21,6 @@ namespace Eighteenth_lesson.Pages
             _wait = Driver.GetWebDriverWait(_driver, 30);
         }
 
-       
-
         public bool CheckedCheckOrUnCheck(string checkbox)
         {
             IWebElement checboxOne = _wait.Until(ExpectedConditions.ElementExists(By.XPath($"{checkbox}")));

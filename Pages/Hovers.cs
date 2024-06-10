@@ -29,6 +29,7 @@ namespace Eighteenth_lesson.Pages
             IWebElement thirdprofile = _wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id='content']/div/div[3]")));
 
             IList<IWebElement> profiles = new List<IWebElement>();
+
             profiles.Add(firstProfile);
             profiles.Add(secondProfile);
             profiles.Add(thirdprofile);
@@ -57,42 +58,6 @@ namespace Eighteenth_lesson.Pages
             }
 
             return true;
-
-            //actions.MoveToElement(secondProfile).Perform();
-
-            //profileName = _wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id='content']/div/div[2]/div/h5"))).Text;
-            //if (profileName.Length == null)
-            //{
-            //    return false;
-            //}
-
-            //viewProfile = _wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id='content']/div/div[2]/div/a")));
-            //actions.MoveToElement(viewProfile).Click().Perform();
-
-            //if (_driver.FindElements(By.XPath("/html/body/h1")).Count > 0 == false)
-            //{
-            //    return false;
-            //}
-            //_driver.Navigate().Back();
-
-            //actions.MoveToElement(thirdprofile).Perform();
-
-            //profileName = _wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id='content']/div/div[3]/div/h5"))).Text;
-            //if (profileName.Length == null)
-            //{
-            //    return false;
-            //}
-
-            //viewProfile = _wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id='content']/div/div[3]/div/a")));
-            //actions.MoveToElement(viewProfile).Click().Perform();
-
-            //if (_driver.FindElements(By.XPath("/html/body/h1")).Count > 0 == false)
-            //{
-            //    return false;
-            //}
-            //_driver.Navigate().Back();
-
-
         }
     }
 }
